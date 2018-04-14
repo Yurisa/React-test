@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Button, List} from 'antd-mobile';
+import { add, remove, addAsync } from './index.redux.js';
+import {connect} from 'react-redux'
 // import {createStore} from 'redux';
+// const mapStatetoProps = (state) => {
+//   return {num:state}
+// }
+
+// const actionCreator = { add, remove, addAsync};
+// // App = connect(mapStatetoProps, actionCreator)(App);
+@connect(
+  //将需要的state放到props
+  state => ({num:state}),
+  //将需要的方法放到props
+  { add, remove, addAsync})
 class App extends Component {
   constructor(){
     super();
@@ -30,6 +43,7 @@ class App extends Component {
     })
   }
   render() {
+    const {num, add, remove, addAsync} = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -40,6 +54,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <h1>现在的数字为{num}</h1>
+        <button onClick={add}>加加加</button>
+        <button onClick={remove}>减减减</button>
+        <button onClick={addAsync}>延迟加</button>
         <List renderHeader={()=> "用户列表"}>
           {this.state.student.map((v, i) => {
             return (
