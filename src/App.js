@@ -13,7 +13,7 @@ import {connect} from 'react-redux'
 // // App = connect(mapStatetoProps, actionCreator)(App);
 @connect(
   //将需要的state放到props
-  state => ({num:state}),
+  state => ({num:state.counter}),
   //将需要的方法放到props
   { add, remove, addAsync})
 class App extends Component {
