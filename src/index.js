@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import {BrowserRouter,  Route, Switch, Redirect} from 'react-router-dom'
 import Auth from './Auth'
 import Dashboard from './Dashboard'
+import './config'
 const store = createStore(reducer, applyMiddleware(thunk));
 console.log(store.getState);
 // class Test extends React.Component{
