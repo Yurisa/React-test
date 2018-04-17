@@ -4,6 +4,7 @@ import { List, InputItem, WingBlank, WhiteSpace, Button } from 'antd-mobile'
 class Login extends React.Component{
     constructor(props){
         super(props)
+        console.log(this.props);
         this.register = this.register.bind(this)
     }
     register(){

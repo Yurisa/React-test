@@ -1,7 +1,9 @@
-const express = require('express');
+const express = require('express')
+const userRouter = require('./user')
+
 
 const app = express();
-
+app.use('/user', userRouter)
 app.get('/api', function(req, res){
     res.end("lalalala")
 })
