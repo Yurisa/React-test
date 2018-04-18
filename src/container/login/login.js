@@ -33,7 +33,6 @@ class Login extends React.Component{
         <div>
             {this.props.redirectTo?<Redirect to={this.props.redirectTo}/>:null}  
             <Logo></Logo>
-            <h2>登录页</h2>
             <WingBlank>
                 <List>
                    <InputItem onChange={v => this.handleChange('user', v)}>用户名</InputItem>
