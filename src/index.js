@@ -14,11 +14,12 @@ import './config'
 import Register from './container/register/register';
 import Login from './container/login/login'
 import AuthRoute from './component/authroute/authroute'
+import DashBoard from './component/dashboard/dashboard'
 const store = createStore(reducer, compose(
     applyMiddleware(thunk),
     window.devToolsExtension?window.devToolsExtension():f=>f
 ));
-
+//boss genius me msg 4个页面
 ReactDOM.render((<Provider store={store}>
     <BrowserRouter>
     <div>
@@ -28,6 +29,7 @@ ReactDOM.render((<Provider store={store}>
             <Route path='/geniusinfo' component={GeniusInfo}></Route>
             <Route path='/login' component={Login}></Route>
             <Route path='/register' component={Register}></Route>
+            <Route component={DashBoard}></Route>
         </Switch>
     </div>
     </BrowserRouter>
