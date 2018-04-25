@@ -3,11 +3,20 @@ const utility = require('utility')
 const Router = express.Router()
 const model = require('./model')
 const User = model.getModel('user')
+const Chat = model.getModel('chat')
 const _filter = {pwd:0, '_v':0}
 Router.get('/list', function(req, res){
     const { type } = req.query
     User.find({type}, function(err, doc){
         return res.json({code:0, data:doc})
+    })
+})
+Router.get('/getmsglist', function(req, res){
+    const user = req.cookies.user
+    Chat.find({}, function(err, doc){
+        if(!err){
+            return res.json({code:0, msgs:doc})
+        }
     })
 })
 Router.post('/update', function(req, res){
@@ -36,7 +45,6 @@ Router.post('/login', function(req, res){
     })
 })
 Router.post('/register', function(req,res){
-     console.log(req.body)
      const {user, pwd, type} = req.body
      User.findOne({user:user}, function(err, doc){
          console.log(doc);
