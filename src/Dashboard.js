@@ -3,6 +3,8 @@ import App from './App';
 import {  Route, Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from './Auth.redux'
+import { getMsgList, sendMsg, recvMsg } from '../../redux/chat.redux'
+
 @connect(
     state => state.auth,
     {logout}
